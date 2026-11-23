@@ -2,7 +2,8 @@
 const menuBtn = document.getElementById("menuBtn");
 const menu = document.getElementById("menu");
 
-// Menú para celulares
+// MENÚ PARA CELULARES
+
 menuBtn.addEventListener("click", () => {
     menu.classList.toggle("open");
 
@@ -13,7 +14,8 @@ menuBtn.addEventListener("click", () => {
     }
 });
 
-// Cerrar menú al seleccionar una sección
+// CERRAR MENÚ AL SELECCIONAR UNA SECCIÓN
+
 document.querySelectorAll("#menu a").forEach(link => {
     link.addEventListener("click", () => {
         menu.classList.remove("open");
@@ -21,7 +23,8 @@ document.querySelectorAll("#menu a").forEach(link => {
     });
 });
 
-// Sistema de progreso
+// SISTEMA DE PROGRESO
+
 const checkboxes = document.querySelectorAll(
     '.checklist input[type="checkbox"]'
 );
@@ -29,12 +32,15 @@ const checkboxes = document.querySelectorAll(
 const progress = document.getElementById("progress");
 const counter = document.getElementById("counter");
 
-// Recuperar el progreso guardado
+// RECUPERAR EL PROGRESO GUARDADO
+
 checkboxes.forEach((checkbox, index) => {
+
     checkbox.checked =
         localStorage.getItem("voto" + index) === "true";
 
     checkbox.addEventListener("change", () => {
+
         localStorage.setItem(
             "voto" + index,
             checkbox.checked
@@ -44,14 +50,18 @@ checkboxes.forEach((checkbox, index) => {
     });
 });
 
-// Actualizar barra y contador
+// ACTUALIZAR BARRA Y CONTADOR
+
 function updateProgress() {
+
     let completed = 0;
 
     checkboxes.forEach(checkbox => {
+
         if (checkbox.checked) {
             completed++;
         }
+
     });
 
     let percentage = (completed / 7) * 100;
